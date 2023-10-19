@@ -1,20 +1,27 @@
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import HomeScreen from './src/screens/HomeScreen';
+import StackNavigator from './src/navigators/StackNavigator';
+import TabsNavigator from './src/navigators/TabsNavigator';
+import { DrawerNavigator } from './src/navigators/DrawerNavigator';
+import { AuthProvider } from './src/providers/AuthProvider';
+
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+    {/* <StatusBar backgroundColor={'#f2058b'}> */}
+    <AuthProvider>
+    <NavigationContainer>
+      {/* Se permite una sola navegacion  aqui*/}
+      <DrawerNavigator />
+    </NavigationContainer>
+    </AuthProvider>
+    {/* </StatusBar> */}
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
