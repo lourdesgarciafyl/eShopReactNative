@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-import { Button, StyleSheet, Text, TouchableOpacity, View, Image, Alert } from "react-native";
+import { Button, StyleSheet, Text, TouchableOpacity, View, Image, Alert, TextInput } from "react-native";
 import { globalStyles } from "../../theme/globalThemes";
-import { TextInput } from "react-native-gesture-handler";
 import InputIcon from "../../components/InputIcon";
 import CustomModal from "../../components/CustomModal";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -12,11 +11,9 @@ const LoginScreen = () => {
 
   const isLogin = () => {
     console.log('aqui');
-
     login(
       'juanperez@gmail.com',
       '12345678Aa')
-      
   }
 
   // se usa dentro de un useEffect normalmente
@@ -58,7 +55,7 @@ const LoginScreen = () => {
       <View>
         <TouchableOpacity 
         style={globalStyles.touchableBtn} 
-        onPress={isLogin}
+        onPress={() => {isLogin()}}
 
         >
           <Text style={globalStyles.textBtn}>Ingresar</Text>

@@ -3,7 +3,7 @@ import { Modal, Pressable, Text, View } from 'react-native'
 import { globalStyles } from '../theme/globalThemes'
 
 const CustomModal = () => {
-  const [visible, setVisible] = useState(true)
+  const [visible, setVisible] = useState(false)
   return (
     <View>
         <Modal

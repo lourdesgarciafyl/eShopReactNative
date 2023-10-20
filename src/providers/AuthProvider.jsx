@@ -15,18 +15,16 @@ export const AuthProvider = ({children}) => {
 
     const login = async (email, password) => {
         try {
-            const user = await eShopApiUrl.post("/auth/login", {
+            const { data } = await eShopApiUrl.post("auth/login", {
                 email,
                 password
             });
-            console.log(user.data)
-    
-            await AsyncStorage.setItem('e-token', user.data.res.token);
-    
+            console.log(data)
+            await AsyncStorage.setItem('e-token', data.token);
             dispatch({
                 type: 'LOGIN',
                 payload: {
-                    user: user.data.res
+                    user: data
                 }
             })
         } catch (error) {
@@ -47,11 +45,18 @@ export const AuthProvider = ({children}) => {
                     type: 'LOGOUT'
                 })
             }
-            const {data} = await eShopApiUrl.get("/auth/revalidatetoken")
-            console.log(data)
-
+            const {data} = await eShopApiUrl.get("auth/revalidatetoken")
+            console.log('token' ,data.token)
+            dispatch({
+                type: 'LOGIN',
+                payload: {
+                    user: data
+                }
+            })
         } catch (error) {
-
+            dispatch({
+                type: 'LOGOUT'
+            })
         }
     }
     return (

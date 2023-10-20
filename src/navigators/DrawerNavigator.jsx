@@ -6,6 +6,7 @@ import ProfileScreen from '../screens/auths/ProfileScreen';
 import TabsNavigator from './TabsNavigator';
 import LoginScreen from '../screens/auths/LoginScreen';
 import { AuthContext } from '../contexts/AuthContext';
+import { CustomLoading } from '../components/CustomLoading';
 
 const Drawer = createDrawerNavigator();
 
@@ -14,8 +15,12 @@ export const DrawerNavigator = () => {
   const {state, checkToken} = useContext(AuthContext)
   
   useEffect( () => {
-    checkToken()
+    checkToken();
   }, [])
+
+  if(state.isLoading) {
+    return <CustomLoading />
+  }
 
   if(state.isLogged) {
     return (
@@ -28,7 +33,7 @@ export const DrawerNavigator = () => {
   if(!state.isLogged) {
     return (
       <Drawer.Navigator>
-        <Drawer.Screen name='LoginScreen' options={{ title: 'Login', headerShown: false}} component={LoginScreen}/>
+        <Drawer.Screen name='HomeScreen' options={{ title: 'Login', headerShown: false}} component={LoginScreen}/>
         {/* <Drawer.Screen name='ProfileScreen' options={{ title: 'Mi Perfil'}} component={ProfileScreen}/> */}
       </Drawer.Navigator>
     )

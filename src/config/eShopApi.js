@@ -1,7 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 
-const urlApi =  'http://192.168.100.2:4010/api';
+const urlApi =  'https://dashboard-react-avanzado-backend.vercel.app/api';
 
 export const eShopApiUrl = axios.create({
     baseURL: urlApi,
@@ -12,13 +12,13 @@ export const eShopApiUrl = axios.create({
     }
 });
 
-// eShopApiUrl.interceptors.request.use( 
-//     async (config)  => {
-//         const token = await AsyncStorage.getItem('e-token')
-//         if (token)  {
-//             config.headers['x-token'] = token 
-//         }
+eShopApiUrl.interceptors.request.use( 
+    async (config)  => {
+        const token = await AsyncStorage.getItem('e-token')
+        if (token)  {
+            config.headers['x-token'] = token 
+        }
 
-//     return  config;
-// }
-// );
+    return  config;
+}
+);
