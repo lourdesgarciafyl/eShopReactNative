@@ -21,8 +21,8 @@ import { ProductsScreen } from './products/ProductsScreen';
 import { CustomCardProducts } from '../components/products/CustomCardProducts';
 import { bannerData } from '../data/bannerData';
 
-export const HomeScreen = ({ navigation }) => {
-  const { navigate } = useNavigation();
+export const HomeScreen = () => {
+  // const { navigate } = useNavigation();
 
   const { width: windowWidth } = Dimensions.get('window');
 

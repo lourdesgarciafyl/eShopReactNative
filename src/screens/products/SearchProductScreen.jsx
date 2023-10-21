@@ -5,7 +5,7 @@ import ItemProducts from '../../components/products/ItemProducts'
 import { searchData } from '../../data/searchData'
 import InputSearch from '../../components/products/InputSearch'
 
-const SearchProductScreen = () => {
+export const SearchProductScreen = () => {
   return (
     <View style={globalStyles.container}>
         
@@ -24,5 +24,3 @@ const SearchProductScreen = () => {
     </View>
   )
 }
-
-export default SearchProductScreen

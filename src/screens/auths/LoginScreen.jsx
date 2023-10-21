@@ -5,7 +5,7 @@ import InputIcon from "../../components/InputIcon";
 import CustomModal from "../../components/CustomModal";
 import { AuthContext } from "../../contexts/AuthContext";
 
-const LoginScreen = () => {
+export const LoginScreen = () => {
 
   const { login, state } = useContext(AuthContext);
 
@@ -81,4 +81,3 @@ const styles = StyleSheet.create({
 },
 });
 
-export default LoginScreen;
