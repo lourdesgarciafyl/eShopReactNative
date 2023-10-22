@@ -1,12 +1,12 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
-import HomeScreen from '../screens/HomeScreen'
-import CheckoutScreen from '../screens/carts/CheckoutScreen'
-import ProductsScreen from '../screens/products/ProductsScreen'
+import {HomeScreen} from '../screens/HomeScreen'
+import {CheckoutScreen} from '../screens/carts/CheckoutScreen'
+import {ProductsScreen} from '../screens/products/ProductsScreen'
 
 const Stack = createStackNavigator()
 
-const StackNavigator = () => {
+export const StackNavigator = () => {
   return (
   <Stack.Navigator  
   // initialRouteName='ProductsScreen'
@@ -22,12 +22,10 @@ const StackNavigator = () => {
         shadowColor: '#000', // sombra de la linea
     }
 }}>
-    <Stack.Screen name='HomeScreen' options={{title: 'Inicio'}} component={HomeScreen}/>
-    <Stack.Screen name='CheckoutScreen' options={{title: 'Checkout!'}}  component={CheckoutScreen}/>
-    <Stack.Screen name='ProductsScreen' options={{title: 'Productos'}}  component={ProductsScreen}/>
+    <Stack.Screen name='HomeScreen' component={HomeScreen}/>
+    <Stack.Screen name='CheckoutScreen' component={CheckoutScreen}/>
+    <Stack.Screen name='ProductsScreen' component={ProductsScreen}/>
 
   </Stack.Navigator>
   )
 }
-
-export default StackNavigator

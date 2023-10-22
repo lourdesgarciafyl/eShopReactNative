@@ -1,13 +1,13 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import StackNavigator from "./StackNavigator";
-import ProfileScreen from "../screens/auths/ProfileScreen";
-import SearchProductScreen from "../screens/products/SearchProductScreen";
+import {StackNavigator} from "./StackNavigator";
+import {ProfileScreen} from "../screens/auths/ProfileScreen";
+import {SearchProductScreen} from "../screens/products/SearchProductScreen";
 
 const Tab = createBottomTabNavigator();
 
-const TabsNavigator = () => {
+export const TabsNavigator = () => {
   return (
     <Tab.Navigator
     screenOptions={{
@@ -75,5 +75,3 @@ const TabsNavigator = () => {
     </Tab.Navigator>
   );
 };
-
-export default TabsNavigator;
